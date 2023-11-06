@@ -8,6 +8,7 @@
 		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="./info">Info</a></li>
 		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="./figma">Figma</a></li>
 		<li><LightSwitch /></li>
+		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="https://mysimplegames.netlify.app/">Webgames</a></li>
 	</ul>
 </div>
 
