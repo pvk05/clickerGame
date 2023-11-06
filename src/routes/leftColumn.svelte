@@ -1,5 +1,5 @@
 <style>
-	#leftcolumn {
+	/*#leftcolumn {
     	width: 350px;
     	float: left;
 	}
@@ -11,10 +11,10 @@
 	tr {
     	height: 50px;
     	border: 2px solid black;
-	}
+	}*/
 </style>
 
-<div id="leftcolumn">
+<div id="leftcolumn" class="bg-surface-100-800-token">
 	<table id="resourceSelector">
 		<tr onclick="clickedResource('resource')">
 			<td style="border: none; vertical-align:middle; text-align:center; width: 50px;">

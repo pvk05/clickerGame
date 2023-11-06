@@ -1,5 +1,5 @@
 <style>
-#content {
+/*#content {
     float: left;
     width: 750px;
 }
@@ -11,36 +11,48 @@
 tr {
     height: 50px;
     border: 2px solid black;
-}
+}*/
 </style>
 
-<div id="content">
-	<table id="resourceTable">
-		<tr>
+<script>
+    import { clickedResource, resources } from "./data.js";
+	import { upgrade } from "./main.js"
+	let sel;
+
+	clickedResource.subscribe((value) => {
+		sel = resources[value]
+		console.log("sel: ", sel.header)
+	});
+
+</script>
+
+<div id="content" class="bg-surface-300-600-token w-2/3 table-container">
+	<table id="resourceTable" class=" table-hover">
+		<tr class="">
 			<th>
-				<h2 id="resourceHeader">Resource</h2>
+				<h2 id="resourceHeader">{sel.header}</h2>
 				<span id="resourceDescription">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda suscipit itaque illo omnis aliquam asperiores corrupti ipsa recusandae vero reprehenderit ad mollitia, modi optio nam deserunt quis nulla nemo enim!
+					{sel.description}
 				</span>
 				<br><br>
 				<button 
 				class="btn" onclick="clickGain(selectedResource)">Gain 1</button>
 			</th>
 		</tr>
-		<tr>
+		<tr class=" table-row">
 			<td id="storageUpgradeBlock">
-				<h3>Storage Upgrade</h3>
+				<h3 class="h3">Storage Upgrade</h3>
 				<p>Upgrade storage to <span id="nextStorageUpgradeAmount"></span></p>
 				<p>Cost: <span id="nextStorageUpgradeCost"></span></p>
-				<button onclick="upgrade('storage')">Upgrade Storage</button>
+				<button on:click={() => {upgrade("storage")}}>Upgrade Storage</button>
 			</td>
 		</tr>
-		<tr>
-			<td id="upgradeOneBlock">
+		<tr class=" table-row">
+			<td id="upgradeOneBlock" class="">
 				<h3><span id="upgradeOneName"></span>: <span id="upgradeOneAmount">0</span></h3>
 				<p id="upgradeOneDescription"></p>
 				<p>Cost: <span id="nextUpgradeOneCost"></span></p>
-				<button onclick="upgrade('one')">Buy Upgrade</button>
+				<button on:click={() => {upgrade("one")}}>Buy Upgrade</button>
 			</td>
 		</tr>
 	</table>

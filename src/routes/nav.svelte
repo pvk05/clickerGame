@@ -1,29 +1,21 @@
-<div id="navigation">
-	<ul>
-		<li id="resourceTab"><a href="./">Resources</a></li>
-		<li id="infoTab"><a href="./info">Info</a></li>
+<script>
+	import { LightSwitch } from '@skeletonlabs/skeleton';
+</script>
+
+<div class=" block space-x-4 float-left h-min w-full">
+	<ul class="flex">
+		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="./">Home</a></li>
+		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="./info">Info</a></li>
+		<li class="text-token hover:bg-surface-300-600-token rounded-md px-3 py-2 text-sm font-medium w-min"><a href="./figma">Figma</a></li>
+		<li><LightSwitch /></li>
 	</ul>
 </div>
 
 <style>
-	#navigation {
+	/*#navigation {
 		float: left;
 		height: 50px;
 		width: 1100px;
 		border-bottom: 2px solid black;
-	}
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		float: left;
-	}
-
-	li a {
-		display: block;
-		padding: 17px;
-	}
+	}*/
 </style>
