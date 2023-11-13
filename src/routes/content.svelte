@@ -1,58 +1,38 @@
-<style>
-/*#content {
-    float: left;
-    width: 750px;
-}
-
-	table {
-    width: 100%;
-}
-
-tr {
-    height: 50px;
-    border: 2px solid black;
-}*/
-</style>
-
 <script>
-    import { clickedResource, resources } from "./data.js";
-	import { upgrade } from "./main.js"
-	let sel;
+    import { writable } from "svelte/store";
+    import { resources } from "./data.js";
+	import { clickGain, upgrade, sel } from "./main.js"
 
-	clickedResource.subscribe((value) => {
-		sel = resources[value]
-		console.log("sel: ", sel.header)
-	});
-
+	
 </script>
 
 <div id="content" class="bg-surface-300-600-token w-2/3 table-container">
 	<table id="resourceTable" class=" table-hover">
 		<tr class="">
 			<th>
-				<h2 id="resourceHeader">{sel.header}</h2>
+				<h2 id="resourceHeader">{$sel.header}</h2>
 				<span id="resourceDescription">
-					{sel.description}
+					{$sel.description}
 				</span>
 				<br><br>
 				<button 
-				class="btn" onclick="clickGain(selectedResource)">Gain 1</button>
+				class="btn variant-ghost-primary" on:click={() => {clickGain()}}>Gain 1</button>
 			</th>
 		</tr>
 		<tr class=" table-row">
-			<td id="storageUpgradeBlock">
+			<td id="storageUpgradeBlock" class=" bg-surface-300-600-token variant-ghost-primary">
 				<h3 class="h3">Storage Upgrade</h3>
 				<p>Upgrade storage to <span id="nextStorageUpgradeAmount"></span></p>
 				<p>Cost: <span id="nextStorageUpgradeCost"></span></p>
-				<button on:click={() => {upgrade("storage")}}>Upgrade Storage</button>
+				<button on:click={() => {upgrade("storage")}} class="btn variant-ghost-primary">Upgrade Storage</button>
 			</td>
 		</tr>
 		<tr class=" table-row">
-			<td id="upgradeOneBlock" class="">
-				<h3><span id="upgradeOneName"></span>: <span id="upgradeOneAmount">0</span></h3>
-				<p id="upgradeOneDescription"></p>
-				<p>Cost: <span id="nextUpgradeOneCost"></span></p>
-				<button on:click={() => {upgrade("one")}}>Buy Upgrade</button>
+			<td id="upgradeOneBlock" class=" bg-surface-300-600-token variant-ghost-primary">
+				<h3 class="h3"><span id="upgradeOneName">{$sel.upgrades.one.name}</span>: <span id="upgradeOneAmount">{$sel.upgrades.one.bought}</span></h3>
+				<p id="upgradeOneDescription">{@html $sel.upgrades.one.description}</p>
+				<p>Cost: <span id="nextUpgradeOneCost">{$sel.upgrades.one.baseCost*($sel.upgrades.one.exp**$sel.upgrades.one.bought)}</span></p>
+				<button on:click={() => {upgrade("one")}} class="btn variant-ghost-primary">Buy Upgrade</button>
 			</td>
 		</tr>
 	</table>

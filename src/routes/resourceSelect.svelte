@@ -1,6 +1,6 @@
 <script>
-
-    import { clickedResource, resources } from "./data.js"
+    import { clickedResource } from './main.js'
+    import { resources } from "./data.js"
     
 </script>
 

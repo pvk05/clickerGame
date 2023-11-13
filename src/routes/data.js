@@ -1,16 +1,7 @@
 
 import { writable } from "svelte/store";
 
-export let clickedResource = writable(0);
 
-clickedResource.subscribe((value) => {
-    console.log("value: ", value)
-}) 
-
-/*export function test(res){
-    clickedRe = res
-    console.log(clickedRe)
-}*/
 
 export let playerData = {
     
@@ -24,7 +15,7 @@ export let resources = [
         upgrades:{
             storage:{
                 current:0,
-                stages:[64, 128, 256, 512, 1024]
+                stages:[64, 128, 256, 512, 1024, 2048]
             },
             one:{
                 name: "one",
